@@ -23,6 +23,7 @@
     {
         static List<Employee> lstEmp = new List<Employee>();
         static List<Department> lstDept = new List<Department>();
+
         public static void AddRecs()
         {
             lstDept.Add(new Department { DeptNo = 10, DeptName = "SALES" });
@@ -51,42 +52,29 @@
             }
         }
 
-        public static string LongRunningFunc(string s)
-        {
-            System.Threading.Thread.Sleep(10);
-            return s.ToUpper();
-        }
-
         static void Main()
         {
             AddRecs();
 
             //Single
             //without default
-            Employee emp1 = lstEmp.Single(e => e.EmpNo == 1); //one record = okay
-            Employee emp2 = lstEmp.Single(e => e.EmpNo == 10);  //no records = error
-            Employee emp3 = lstEmp.Single(e => e.Basic > 5000); //multiple records => error
+            Employee emp1 = lstEmp.Single(e => e.EmpNo == 1); //one record if present
+            //Employee emp2 = lstEmp.Single(e => e.EmpNo == 10);  //no records = error
+            //Employee emp3 = lstEmp.Single(e => e.Basic > 5000); //multiple records => error
 
             //Single
             //with default
-            Employee emp4 = lstEmp.SingleOrDefault(e => e.EmpNo == 1); //one record => okay
+            Employee emp4 = lstEmp.SingleOrDefault(e => e.EmpNo == 1); //one record if present
             Employee emp5 = lstEmp.SingleOrDefault(e => e.EmpNo == 10); //no records => null
-            Employee emp6 = lstEmp.SingleOrDefault(e => e.Basic > 5000);//multiple records =>  error
+            //Employee emp6 = lstEmp.SingleOrDefault(e => e.Basic > 5000);//multiple records =>  error
 
-            if (emp != null)
-                Console.WriteLine(emp.Name + "," + emp.EmpNo);
-            else
-                Console.WriteLine("not found");
-            Console.ReadLine();
-
-            lstEmp.ElementAt(10)
-            lstEmp.ElementAtOrDefault(10)
-            lstEmp.First()
-            lstEmp.First(e => e.Basic > 10000);
-
-            lstEmp.FirstOrDefault()
-            lstEmp.Last();
-            lstEmp.LastOrDefault();
+            //lstEmp.ElementAt(10);// error
+            //lstEmp.ElementAtOrDefault(10); //null if no records
+            //lstEmp.First();// can give error
+            //lstEmp.First(e => e.Basic > 10000); //error if condition doesnt match
+            //lstEmp.FirstOrDefault(); //null if no records
+            //lstEmp.Last(); // can give error
+            //lstEmp.LastOrDefault(); //null if no records
         }
     }
 }

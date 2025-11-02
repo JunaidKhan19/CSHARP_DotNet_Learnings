@@ -186,12 +186,17 @@
 
             //group with orderby and where
             var emps11 = from emp in lstEmp
-                         group emp by emp.DeptNo ascending, emp.Name descending into group1
-                         where emp.Basic > 10000
+                         group emp by emp.DeptNo into group1
+                         orderby group1.Key descending
                          select group1;
-            foreach (var emp in emps11)
+            foreach (var grp in emps11)
             {
-                System.Console.WriteLine(emp);
+                Console.WriteLine($"DeptNo: {grp.Key}");
+                foreach (var e in grp)
+                {
+                    Console.WriteLine($"{e.Name} - {e.Basic}");
+                }
+                Console.WriteLine();
             }
 
         }
