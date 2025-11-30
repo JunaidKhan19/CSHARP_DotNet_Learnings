@@ -1,0 +1,31 @@
+﻿@model List<MVCapp.Models.Emp>
+
+<a href="/Home/Create">Create new Employee record</a> |
+
+<hr />
+
+<h1>Emps Records</h1>
+<table>
+	<thead>
+		<tr>
+			<th>No</th>
+			<th>Name</th>
+			<th>Address</th>
+		</tr>
+	</thead>
+	<tbody>
+			@foreach (var emp in Model)
+			{
+				<tr>
+					<td>@emp.empno</td>
+					<td>@emp.ename</td>
+					<td>@emp.address</td>
+					<td>
+						<a href="/Home/Edit/@emp.empno">Edit</a>
+						<a href="/Home/Delete/@emp.empno">Delete</a>
+					</td>
+				</tr>
+			}
+	</tbody>
+</table>
+

@@ -1,0 +1,10 @@
+﻿@model MVCapp.Models.Emp
+
+<h3>Edit new Employee</h3>
+
+<form action="/Home/Edit" method="post">
+	<input type="hidden" name="empno" placeholder="Employee Number" value="@Model.empno" /><br />
+	<input type="text" name="ename" placeholder="Employee Name" value="@Model.ename"/><br />
+	<input type="text" name="address" placeholder="Employee Address" value="@Model.address"/><br />
+	<input type="submit" value="Update employee" />
+</form>

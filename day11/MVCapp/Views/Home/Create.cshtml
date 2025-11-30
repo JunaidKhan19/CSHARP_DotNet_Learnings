@@ -1,0 +1,10 @@
+﻿@model MVCapp.Models.Emp
+
+<h3>Create new Employee</h3>
+
+<form action="/Home/Create" method="post">
+	<input type="hidden" name="empno" placeholder="Employee Number" /><br />
+	<input type="text" name="ename" placeholder="Employee Name" /><br />
+	<input type="text" name="address" placeholder="Employee Address" /><br />
+	<input type="submit" value="Create employee" />
+</form>
